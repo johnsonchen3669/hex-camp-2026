@@ -1,0 +1,125 @@
+---
+const navItems = [
+  { label: '服務項目', href: '/' },
+  { label: '專案作品', href: '/project' },
+  { label: '部落格', href: '/blog' },
+  { label: '與我聯絡', href: '/article' },
+];
+---
+
+<header class="sticky top-0 z-50 py-2 sm:py-3">
+  <div class="container">
+    <div class="flex items-center justify-between gap-4">
+      <a href="/" class="inline-flex items-center" aria-label="Nelson 首頁">
+        <img
+          src="/logo.svg"
+          alt="Nelson"
+          class="h-7 w-auto md:h-10 aspect-140/40"
+        />
+      </a>
+
+      <nav
+        class="hidden items-center gap-6 fw-medium md:flex"
+        aria-label="主選單"
+      >
+        {
+          navItems.map((item) => (
+            <a
+              class="px-3 py-1 text-neutral-700 transition hover:text-primary-900"
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          type="button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="開啟選單"
+        >
+          <img src="/icon-btn.svg" alt="選單" />
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="mobile-menu-overlay"
+      class="pointer-events-none fixed inset-x-0 top-15 bottom-0 z-30 bg-dark-60a opacity-0 transition-opacity duration-300 ease-out md:hidden"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      id="mobile-menu"
+      class="pointer-events-none fixed inset-x-0 top-15 z-40 grid grid-rows-[0fr] bg-primary-50 opacity-0 transition-[grid-template-rows,opacity] duration-300 ease-out md:hidden"
+      aria-hidden="true"
+    >
+      <div class="min-h-0 overflow-hidden">
+        <div class="container">
+          <nav
+            class="flex flex-col items-center py-3 text-center gap-3"
+            aria-label="行動版主選單"
+          >
+            {
+              navItems.map((item) => (
+                <a
+                  class="w-full px-3 py-1 text-neutral-700 transition text-sm/normal active:bg-primary-900/5 active:text-primary-900 focus-visible:bg-primary-900/5 focus-visible:text-primary-900"
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const menu = document.getElementById('mobile-menu');
+
+  if (button && menu && overlay) {
+    const setMenuState = (isOpen: boolean) => {
+      menu.classList.toggle('grid-rows-[1fr]', isOpen);
+      menu.classList.toggle('grid-rows-[0fr]', !isOpen);
+      menu.classList.toggle('pointer-events-auto', isOpen);
+      menu.classList.toggle('pointer-events-none', !isOpen);
+      menu.classList.toggle('opacity-100', isOpen);
+      menu.classList.toggle('opacity-0', !isOpen);
+      overlay.classList.toggle('pointer-events-auto', isOpen);
+      overlay.classList.toggle('pointer-events-none', !isOpen);
+      overlay.classList.toggle('opacity-100', isOpen);
+      overlay.classList.toggle('opacity-0', !isOpen);
+      overlay.setAttribute('aria-hidden', String(!isOpen));
+      menu.setAttribute('aria-hidden', String(!isOpen));
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
+    };
+
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      setMenuState(!isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        setMenuState(false);
+      });
+    });
+
+    overlay.addEventListener('click', () => {
+      setMenuState(false);
+    });
+
+    setMenuState(false);
+  }
+</script>
