@@ -1,9 +1,118 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Index">
-	<main class="grid min-h-dvh place-items-center px-6">
-		<h1 class="type-heading-xxxl text-primary-900">Index</h1>
-	</main>
+
+<BaseLayout title="Nelson | UIUX Designer & Front-End Engineer">
+  <main>
+    <section class="relative">
+      <div class="container">
+        <div
+          class="relative min-h-[calc(100dvh-var(--site-header-height))] py-4 md:py-0"
+        >
+          <div
+            class="relative grid min-h-[calc(100dvh-var(--site-header-height)-2rem)] items-center gap-6 md:min-h-[calc(100dvh-var(--site-header-height))] md:grid-cols-[minmax(0,1fr)_minmax(0,33rem)] md:gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,39rem)]"
+          >
+            <div class="order-2 max-w-136 py-6 md:order-1 md:py-0 lg:pl-14">
+              <h1
+                class="text-[3.25rem]/[0.95] font-bold tracking-[0.02em] text-neutral-700 md:text-[5rem]/[0.95]"
+              >
+                Hello
+                <br />
+                I&apos;m Nelson
+              </h1>
+              <p
+                class="mt-4 max-w-md text-sm/7 text-neutral-700 md:mt-6 md:text-base/8"
+              >
+                我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師
+                喜歡把美學和程式結合，打造一個又一個精美的網頁設計！
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3 md:mt-10">
+                <a
+                  href="/article"
+                  class="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-700 px-6 text-sm font-bold text-neutral-0 transition hover:bg-primary-900"
+                >
+                  與我聯絡
+                </a>
+                <a
+                  href="/project"
+                  class="inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-700 px-6 text-sm font-bold text-neutral-700 transition hover:border-primary-900 hover:text-primary-900"
+                >
+                  我的履歷
+                </a>
+              </div>
+            </div>
+
+            <div class="relative order-1 md:order-2 md:justify-self-end">
+              <div
+                class="relative mx-auto aspect-4/5 w-full max-w-86 overflow-hidden bg-primary-900 md:max-w-132 lg:max-w-156"
+              >
+                <img
+                  src="/image/index_person.png"
+                  alt="Nelson 人像"
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <img
+                src="/image/index_decora_1.png"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute left-3 top-3 w-12 md:left-[calc(50%-3rem)] md:top-[12.125%] md:w-50 lg:left-[-15.95%]"
+              />
+              <img
+                src="/image/index_decora_2.png"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute right-1 top-52 w-14 md:right-6 md:top-auto md:bottom-[10.88%] md:w-40 lg:right-[-10.7%]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="/image/index_decora_3.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute left-[4.48%] top-[7%] hidden w-35 md:block"
+      />
+      <img
+        src="/image/index_decora_4.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute left-[11.71%] top-[15%] hidden w-78 md:block lg:left-[11.71%]"
+      />
+      <img
+        src="/image/index_decora_3.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute left-[36.6%] bottom-[24%] hidden w-20 md:block lg:right-20"
+      />
+      <img
+        src="/image/index_decora_5.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute bottom-[10.375%] left-56 hidden w-45 md:block lg:left-[27.23%]"
+      />
+      <img
+        src="/image/index_decora_3.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute top-[25.5%] right-[7.39%] hidden w-35 md:block lg:right-[7.39%]"
+      />
+      <!-- <img
+        src="/image/index_decora_3.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute right-3 top-66 w-35 md:hidden"
+      /> -->
+      <!-- <img
+            src="/image/index_decora_6.png"
+            alt=""
+            aria-hidden="true"
+            class="pointer-events-none absolute left-32 top-66 w-17 md:hidden"
+          /> -->
+    </section>
+  </main>
 </BaseLayout>
