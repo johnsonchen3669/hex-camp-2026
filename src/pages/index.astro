@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AppButton from '../components/AppButton';
 
 const services = [
   {
@@ -33,17 +34,19 @@ const projects = [
     date: 'Oct 16, 2025',
     tags: ['平面設計', '網頁設計'],
     title: '品牌視覺與電商整合，多肉植物品牌電商建置',
-    body: '從品牌識別到視覺傳達，打造完整的 RWD 響應式電商網站，從視覺系統到前端實作一手包辦。',
+    body: '從品牌識別設計到 RWD 網站開發，打造療癒系植栽購物體驗',
     image: '/image/project_1.png',
-    bg: 'bg-neutral-0',
+    mobileImage: '/image/mobile/project_1.png',
+    bg: 'bg-primary-50',
     textColor: 'text-neutral-700',
   },
   {
     date: 'Oct 16, 2025',
     tags: ['平面設計', '網頁設計', '前端切版'],
     title: '數位產品 UI/UX 設計，個人化財務視覺化軟體',
-    body: '運用數據視覺化傳達複雜資訊，打造簡潔易懂且功能齊全的財務管理介面體驗。',
+    body: '運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面',
     image: '/image/project_2.png',
+    mobileImage: '/image/mobile/project_2.png',
     bg: 'bg-primary-100',
     textColor: 'text-neutral-700',
   },
@@ -51,8 +54,9 @@ const projects = [
     date: 'Oct 16, 2025',
     tags: ['前端切版', '後端開發'],
     title: '品牌識別與包裝設計，法式甜點品牌視覺重塑',
-    body: '以溫暖柔和的美感語彙，打造讓消費者感到親切高雅的法式甜點品牌整體視覺。',
+    body: '以溫暖、輕盈的視覺語言，精準定位高質感甜點市場的品牌形象',
     image: '/image/project_3.png',
+    mobileImage: '/image/mobile/project_3.png',
     bg: 'bg-primary-50',
     textColor: 'text-neutral-700',
   },
@@ -116,18 +120,8 @@ const blogs = [
                 >
               </p>
               <div class="mt-8 flex flex-wrap gap-3 lg:mt-15">
-                <a
-                  href="/article"
-                  class="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-700 px-6 text-sm font-bold text-neutral-0 transition-all duration-300 hover:bg-primary-500 hover:text-neutral-900 hover:shadow-[0_4px_14px_rgba(245,184,123,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
-                >
-                  與我聯絡
-                </a>
-                <a
-                  href="/project"
-                  class="inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-700 px-6 text-sm font-bold text-neutral-700 transition-all duration-300 hover:bg-neutral-700 hover:text-neutral-0 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
-                >
-                  我的履歷
-                </a>
+                <AppButton href="/article" label="與我聯絡" variant="primary" />
+                <AppButton href="/project" label="我的履歷" variant="outline" />
               </div>
             </div>
 
@@ -191,7 +185,8 @@ const blogs = [
         class="pointer-events-none absolute top-[25.5%] right-[7.39%] hidden w-35 lg:block"
       />
     </section>
-        <!-- ===== SERVICES ===== -->
+   
+    <!-- ===== SERVICES ===== -->
     <section id="service" class="overflow-hidden bg-primary-900 py-10 md:py-20">
       <div class="container">
         <div class="mb-10">
@@ -204,13 +199,17 @@ const blogs = [
             SERVICES
           </h2>
         </div>
-        <div class="flex gap-6 overflow-x-auto lg:grid lg:grid-cols-4 lg:overflow-visible">
+        <div
+          class="flex gap-6 overflow-x-auto lg:grid lg:grid-cols-4 lg:overflow-visible"
+        >
           {
             services.map((s) => (
               <article class="flex w-65 flex-none flex-col gap-2 bg-primary-50 p-3 md:gap-3 md:p-6 lg:w-auto">
                 <div class="flex items-start justify-between gap-2 md:gap-3">
                   <div>
-                    <p class="text-sm/normal font-bold text-neutral-700 sm:text-base">{s.en}</p>
+                    <p class="text-sm/normal font-bold text-neutral-700 sm:text-base">
+                      {s.en}
+                    </p>
                     <h3 class="text-2xl/normal font-bold text-neutral-700 sm:text-7/normal">
                       {s.zh}
                     </h3>
@@ -224,7 +223,9 @@ const blogs = [
                   />
                 </div>
                 <div class="flex items-center justify-between gap-3">
-                  <p class="text-sm/normal text-neutral-700 sm:text-base/normal">{s.body}</p>
+                  <p class="text-sm/normal text-neutral-700 sm:text-base/normal">
+                    {s.body}
+                  </p>
                   <a
                     href="/service"
                     aria-label={`了解${s.zh}服務`}
@@ -247,6 +248,65 @@ const blogs = [
       </div>
     </section>
 
+    <!-- ===== PROJECTS ===== -->
+    <section id="project" class="py-10 md:py-20">
+      <div class="container">
+        <div class="mb-6 text-center md:mb-10">
+          <p class="text-sm/normal font-bold text-neutral-500 sm:text-base/normal">專案作品</p>
+          <h2 class="text-10/tight font-bold text-neutral-900 lg:text-20/tight">
+            PROJECTS
+          </h2>
+        </div>
+        <div class="flex flex-col gap-6">
+          {
+            projects.map((p) => (
+              <article
+                class="group relative flex flex-col overflow-hidden text-center aspect-351/580 md:block md:aspect-auto"
+              >
+                <div
+                  class="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+                  style={`background-image: url('${p.mobileImage}');`}
+                  aria-hidden="true"
+                ></div>
+                <div
+                  class="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
+                  style={`background-image: url('${p.image}');`}
+                  aria-hidden="true"
+                ></div>
+                <div class="absolute inset-0 bg-neutral-0/10 md:hidden"></div>
+                <div class="absolute inset-0 hidden bg-neutral-0/10 md:block"></div>
+                <div
+                  class={`relative z-10 mx-5 mb-5 mt-auto flex flex-col items-center gap-6 p-6 md:m-7 md:min-h-66 md:w-1/2 md:justify-center md:p-7 lg:max-w-96.5 xl:w-[30.93%] ${p.bg}`}
+                >
+                  <div class="flex flex-col gap-3">
+                    <p class="text-3.25/normal text-neutral-500 sm:text-sm/normal">{p.date}</p>
+                    <p class="text-sm/normal font-medium text-neutral-500 sm:text-base">
+                      {p.tags.join('・')}
+                    </p>
+                    <h3
+                      class={`text-xl/normal font-bold lg:text-2xl/normal ${p.textColor}`}
+                    >
+                      {p.title}
+                    </h3>
+                    <p class={`text-sm/normal ${p.textColor} opacity-70 sm:text-base/normal`}>
+                      {p.body}
+                    </p>
+                  </div>
+                  <AppButton
+                    href="/project"
+                    label="前往專案"
+                    variant="primary"
+                  />
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <div class="mt-6 flex justify-center md:mt-12">
+          <AppButton href="/project" label="探索更多" variant="primary" />
+        </div>
+      </div>
+    </section>
 
   </main>
 </BaseLayout>

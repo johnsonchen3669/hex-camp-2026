@@ -32,6 +32,7 @@
   --color-dark-40a: rgb(0 0 0 / 40%);
   --color-dark-60a: rgb(0 0 0 / 60%);
 
+	--text-3.25: 0.8125rem; /* 13px */
   --text-7: 1.75rem; /* 28px */
   --text-10: 2.5rem; /* 40px */
   --text-20: 5rem; /* 80px */
