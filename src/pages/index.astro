@@ -1,50 +1,139 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    en: 'GRAPHIC',
+    zh: '平面設計',
+    body: '從品牌識別到視覺傳達，用專業設計精準傳遞核心價值',
+    icon: `<path d="M8.3279 1.93207L9.05686 1.16663L18.8098 10.9494L12.3037 17.5364L5.79792 10.9294L11.575 5.18897L8.3279 1.93207ZM12.3239 5.94046L7.27002 10.9697H17.3377L12.3239 5.94046ZM19.786 17.3998C19.4826 17.0952 19.3308 16.7208 19.3308 16.2765C19.3308 15.9619 19.4133 15.6514 19.5781 15.3449C19.743 15.0384 19.9163 14.748 20.0981 14.4739C20.2287 14.2902 20.3612 14.1114 20.4958 13.9372C20.6304 13.7629 20.7671 13.584 20.9059 13.4003C21.0445 13.584 21.181 13.7629 21.3156 13.9372C21.4502 14.1114 21.5828 14.2902 21.7136 14.4739C21.8952 14.748 22.0685 15.0384 22.2333 15.3449C22.3983 15.6514 22.4809 15.9619 22.4809 16.2765C22.4809 16.7208 22.329 17.0952 22.0254 17.3998C21.7218 17.7042 21.3486 17.8564 20.9059 17.8564C20.4629 17.8564 20.0896 17.7042 19.786 17.3998ZM3.5 24.5V22.3935H24.5V24.5H3.5Z"/>`,
+  },
+  {
+    en: 'WEBSITE',
+    zh: '網頁設計',
+    body: '美感易用並重，以 Figma 打造符合直覺的數位體驗',
+    icon: `<path  d="M18.0833 18.3076H21.8076V14.5833H20.7757V17.2757H18.0833V18.3076ZM6.19237 11.0833H7.22429V8.39092H9.91667V7.359H6.19237V11.0833ZM10.5 23.3333V21H3.5V4.66663H24.5V21H17.5V23.3333H10.5ZM4.66667 19.8333H23.3333V5.83329H4.66667V19.8333Z"/>`,
+  },
+  {
+    en: 'FRONTEND',
+    zh: '前端切版',
+    body: '精準轉譯設計稿細節，建構流暢穩定 RWD 響應式網頁',
+    icon: `<path d="M3.5 22.1667V5.83337H24.5V22.1667H3.5ZM4.66667 21H17.5V16.4681H4.66667V21ZM18.6667 21H23.3333V10.7692H18.6667V21ZM4.66667 15.3015H17.5V10.7692H4.66667V15.3015Z"/>`,
+  },
+  {
+    en: 'BACKEND',
+    zh: '後端開發',
+    body: '佈署穩定系統架構，串接 API 並確保數據處理安全',
+    icon: `<path  d="M4.6665 23.3333V4.66663H23.3332V23.3333H4.6665ZM5.83317 10.4976H22.1665V5.83329H5.83317V10.4976ZM5.83317 16.3356H22.1665V11.6643H5.83317V16.3356ZM5.83317 22.1666H22.1665V17.5023H5.83317V22.1666ZM7.8973 9.10434V7.21988H9.78175V9.10434H7.8973ZM7.8973 14.9423V13.0576H9.78175V14.9423H7.8973ZM7.8973 20.78V18.8956H9.78175V20.78H7.8973Z" />`,
+  },
+];
+
+const projects = [
+  {
+    date: 'Oct 16, 2025',
+    tags: ['平面設計', '網頁設計'],
+    title: '品牌視覺與電商整合，多肉植物品牌電商建置',
+    body: '從品牌識別到視覺傳達，打造完整的 RWD 響應式電商網站，從視覺系統到前端實作一手包辦。',
+    image: '/image/project_1.png',
+    bg: 'bg-neutral-0',
+    textColor: 'text-neutral-700',
+  },
+  {
+    date: 'Oct 16, 2025',
+    tags: ['平面設計', '網頁設計', '前端切版'],
+    title: '數位產品 UI/UX 設計，個人化財務視覺化軟體',
+    body: '運用數據視覺化傳達複雜資訊，打造簡潔易懂且功能齊全的財務管理介面體驗。',
+    image: '/image/project_2.png',
+    bg: 'bg-primary-100',
+    textColor: 'text-neutral-700',
+  },
+  {
+    date: 'Oct 16, 2025',
+    tags: ['前端切版', '後端開發'],
+    title: '品牌識別與包裝設計，法式甜點品牌視覺重塑',
+    body: '以溫暖柔和的美感語彙，打造讓消費者感到親切高雅的法式甜點品牌整體視覺。',
+    image: '/image/project_3.png',
+    bg: 'bg-primary-50',
+    textColor: 'text-neutral-700',
+  },
+];
+
+const blogs = [
+  {
+    tags: ['UIUX 設計', '設計情報', '前端切版'],
+    title:
+      '10年職人手記：如何運用 Figma 與 Storybook 打造美感與邏輯兼具的企業級設計系統',
+    date: 'Oct 16, 2022',
+    views: 110,
+    shares: 2,
+    image: '/image/blog_1.png',
+  },
+  {
+    tags: ['品牌設計', '平面設計', 'UIUX 設計'],
+    title:
+      '從平面識別到數位轉換：以「植感生活」為例，探討跨媒體品牌視覺在網頁上的精準轉譯',
+    date: 'Oct 16, 2022',
+    views: 110,
+    shares: 2,
+    image: '/image/blog_2.png',
+  },
+  {
+    tags: ['前端切版', '後端整合', 'AI 趨勢應用'],
+    title:
+      '擁抱金融 App 的設計密碼：如何優化 Open Bank API 的複雜數據呈現與後端串接安全性',
+    date: 'Oct 16, 2022',
+    views: 110,
+    shares: 2,
+    image: '/image/blog_3.png',
+  },
+];
 ---
 
 <BaseLayout title="Nelson | UIUX Designer & Front-End Engineer">
   <main>
-    <section class="relative">
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-x-hidden">
       <div class="container">
         <div
-          class="relative min-h-[calc(100dvh-var(--site-header-height))] py-4 md:py-0"
+          class="relative min-h-[calc(100dvh-var(--site-header-height))] py-4 lg:py-0"
         >
-          <div
-            class="relative grid min-h-[calc(100dvh-var(--site-header-height)-2rem)] items-center gap-6 md:min-h-[calc(100dvh-var(--site-header-height))] md:grid-cols-[minmax(0,1fr)_minmax(0,33rem)] md:gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,39rem)]"
-          >
-            <div class="order-2 max-w-136 py-6 md:order-1 md:py-0 lg:pl-14">
+          <div class="relative flex flex-col items-center gap-6 lg:flex-row">
+            <div
+              class="order-2 w-full max-w-136 py-6 lg:order-1 lg:py-0 lg:pl-14"
+            >
               <h1
-                class="text-[3.25rem]/[0.95] font-bold tracking-[0.02em] text-neutral-700 md:text-[5rem]/[0.95]"
+                class="text-10/tight font-bold md:text-12/tight lg:text-16/tight xl:text-20/tight"
               >
                 Hello
                 <br />
                 I&apos;m Nelson
               </h1>
               <p
-                class="mt-4 max-w-md text-sm/7 text-neutral-700 md:mt-6 md:text-base/8"
+                class="mt-4 flex max-w-md flex-col gap-1 text-sm/normal md:mt-6 md:text-base/normal"
               >
-                我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師
-                喜歡把美學和程式結合，打造一個又一個精美的網頁設計！
+                <span>我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師</span>
+                <span>喜歡把美學和程式結合，打造一個又一個精美的網頁設計！</span
+                >
               </p>
-              <div class="mt-8 flex flex-wrap gap-3 md:mt-10">
+              <div class="mt-8 flex flex-wrap gap-3 lg:mt-15">
                 <a
                   href="/article"
-                  class="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-700 px-6 text-sm font-bold text-neutral-0 transition hover:bg-primary-900"
+                  class="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-700 px-6 text-sm font-bold text-neutral-0 transition-all duration-300 hover:bg-primary-500 hover:text-neutral-900 hover:shadow-[0_4px_14px_rgba(245,184,123,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
                 >
                   與我聯絡
                 </a>
                 <a
                   href="/project"
-                  class="inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-700 px-6 text-sm font-bold text-neutral-700 transition hover:border-primary-900 hover:text-primary-900"
+                  class="inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-700 px-6 text-sm font-bold text-neutral-700 transition-all duration-300 hover:bg-neutral-700 hover:text-neutral-0 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
                 >
                   我的履歷
                 </a>
               </div>
             </div>
 
-            <div class="relative order-1 md:order-2 md:justify-self-end">
+            <div class="relative order-1 lg:order-2 lg:min-w-0 lg:flex-1">
               <div
-                class="relative mx-auto aspect-4/5 w-full max-w-86 overflow-hidden bg-primary-900 md:max-w-132 lg:max-w-156"
+                class="relative mx-auto aspect-4/5 w-full max-w-86 overflow-hidden bg-primary-900 md:max-w-104 lg:max-w-132 xl:max-w-156"
               >
                 <img
                   src="/image/index_person.png"
@@ -58,13 +147,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 src="/image/index_decora_1.png"
                 alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute left-3 top-3 w-12 md:left-[calc(50%-3rem)] md:top-[12.125%] md:w-50 lg:left-[-15.95%]"
+                class="pointer-events-none absolute left-3 top-3 w-12 lg:left-[calc(50%-3rem)] lg:top-[12.125%] lg:w-50 xl:left-[-15.95%]"
               />
               <img
                 src="/image/index_decora_2.png"
                 alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute right-1 top-52 w-14 md:right-6 md:top-auto md:bottom-[10.88%] md:w-40 lg:right-[-10.7%]"
+                class="pointer-events-none absolute right-1 top-52 w-14 lg:right-6 lg:top-auto lg:bottom-[10.88%] lg:w-40 xl:right-[-10.7%]"
               />
             </div>
           </div>
@@ -75,44 +164,89 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         src="/image/index_decora_3.png"
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute left-[4.48%] top-[7%] hidden w-35 md:block"
+        class="pointer-events-none absolute left-[4.48%] top-[7%] hidden w-35 lg:block"
       />
       <img
         src="/image/index_decora_4.png"
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute left-[11.71%] top-[15%] hidden w-78 md:block lg:left-[11.71%]"
+        class="pointer-events-none absolute left-[11.71%] top-[15%] hidden w-78 lg:block"
       />
       <img
         src="/image/index_decora_3.png"
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute left-[36.6%] bottom-[24%] hidden w-20 md:block lg:right-20"
+        class="pointer-events-none absolute bottom-[24%] left-[36.6%] hidden w-20 lg:block"
       />
       <img
         src="/image/index_decora_5.png"
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute bottom-[10.375%] left-56 hidden w-45 md:block lg:left-[27.23%]"
+        class="pointer-events-none absolute bottom-[10.375%] left-56 hidden w-45 lg:block lg:left-[27.23%]"
       />
       <img
         src="/image/index_decora_3.png"
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute top-[25.5%] right-[7.39%] hidden w-35 md:block lg:right-[7.39%]"
+        class="pointer-events-none absolute top-[25.5%] right-[7.39%] hidden w-35 lg:block"
       />
-      <!-- <img
-        src="/image/index_decora_3.png"
-        alt=""
-        aria-hidden="true"
-        class="pointer-events-none absolute right-3 top-66 w-35 md:hidden"
-      /> -->
-      <!-- <img
-            src="/image/index_decora_6.png"
-            alt=""
-            aria-hidden="true"
-            class="pointer-events-none absolute left-32 top-66 w-17 md:hidden"
-          /> -->
     </section>
+        <!-- ===== SERVICES ===== -->
+    <section id="service" class="overflow-hidden bg-primary-900 py-10 md:py-20">
+      <div class="container">
+        <div class="mb-10">
+          <p
+            class="text-sm/normal font-bold text-neutral-0 sm:text-base/normal"
+          >
+            服務項目
+          </p>
+          <h2 class="text-10/tight font-bold text-neutral-0 lg:text-20/tight">
+            SERVICES
+          </h2>
+        </div>
+        <div class="flex gap-6 overflow-x-auto lg:grid lg:grid-cols-4 lg:overflow-visible">
+          {
+            services.map((s) => (
+              <article class="flex w-65 flex-none flex-col gap-2 bg-primary-50 p-3 md:gap-3 md:p-6 lg:w-auto">
+                <div class="flex items-start justify-between gap-2 md:gap-3">
+                  <div>
+                    <p class="text-sm/normal font-bold text-neutral-700 sm:text-base">{s.en}</p>
+                    <h3 class="text-2xl/normal font-bold text-neutral-700 sm:text-7/normal">
+                      {s.zh}
+                    </h3>
+                  </div>
+                  <svg
+                    class="mt-1 size-6 shrink-0 text-neutral-700 md:size-7"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    set:html={s.icon}
+                  />
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <p class="text-sm/normal text-neutral-700 sm:text-base/normal">{s.body}</p>
+                  <a
+                    href="/service"
+                    aria-label={`了解${s.zh}服務`}
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-neutral-700 text-neutral-0 transition-all duration-300 hover:bg-primary-500 hover:text-neutral-900 hover:-translate-y-0.5 active:translate-y-0"
+                  >
+                    <svg
+                      class="size-5 md:size-6"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M6.70085 18L6 17.2991L16.2616 7.01794H6.80265V6H18V17.1974H16.9821V7.73839L6.70085 18Z" />
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+
   </main>
 </BaseLayout>

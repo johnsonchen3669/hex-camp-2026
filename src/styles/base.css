@@ -3,4 +3,6 @@
 }
 body {
   background-color: var(--color-primary-50);
+  color: var(--color-neutral-700);
+  font-weight: 500;
 }
