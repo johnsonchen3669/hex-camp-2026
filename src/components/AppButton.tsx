@@ -53,9 +53,14 @@ export default function AppButton({
     `${baseClasses} ${variantClasses[variant]} ${className}`.trim();
 
   if (href) {
+    const resolvedHref =
+      href.startsWith('/') && !href.startsWith('//')
+        ? `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${href.replace(/^\//, '')}`
+        : href;
+
     return (
       <a
-        href={href}
+        href={resolvedHref}
         aria-label={ariaLabel}
         target={target}
         rel={rel}

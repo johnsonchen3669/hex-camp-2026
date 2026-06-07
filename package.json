@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node --input-type=module -e \"import { writeFileSync } from 'node:fs'; writeFileSync('dist/.nojekyll', '');\"",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --dotfiles",
     "preview": "astro preview",
     "astro": "astro"
   },

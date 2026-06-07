@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppButton from '../components/AppButton';
 
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path.replace(/^\//, '')}`;
+
 const services = [
   {
     en: 'GRAPHIC',
@@ -35,8 +37,8 @@ const projects = [
     tags: ['平面設計', '網頁設計'],
     title: '品牌視覺與電商整合，多肉植物品牌電商建置',
     body: '從品牌識別設計到 RWD 網站開發，打造療癒系植栽購物體驗',
-    image: '/image/project_1.png',
-    mobileImage: '/image/mobile/project_1.png',
+    image: withBase('/image/project_1.png'),
+    mobileImage: withBase('/image/mobile/project_1.png'),
     bg: 'bg-primary-50',
   },
   {
@@ -44,8 +46,8 @@ const projects = [
     tags: ['平面設計', '網頁設計', '前端切版'],
     title: '數位產品 UI/UX 設計，個人化財務視覺化軟體',
     body: '運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面',
-    image: '/image/project_2.png',
-    mobileImage: '/image/mobile/project_2.png',
+    image: withBase('/image/project_2.png'),
+    mobileImage: withBase('/image/mobile/project_2.png'),
     bg: 'bg-primary-50',
   },
   {
@@ -53,8 +55,8 @@ const projects = [
     tags: ['前端切版', '後端開發'],
     title: '品牌識別與包裝設計，法式甜點品牌視覺重塑',
     body: '以溫暖、輕盈的視覺語言，精準定位高質感甜點市場的品牌形象',
-    image: '/image/project_3.png',
-    mobileImage: '/image/mobile/project_3.png',
+    image: withBase('/image/project_3.png'),
+    mobileImage: withBase('/image/mobile/project_3.png'),
     bg: 'bg-primary-50',
   },
 ];
@@ -67,7 +69,7 @@ const blogs = [
     date: 'Oct 16, 2022',
     views: 110,
     shares: 2,
-    image: '/image/blog_1.png',
+    image: withBase('/image/blog_1.png'),
   },
   {
     tags: ['品牌設計', '平面設計', 'UIUX 設計'],
@@ -76,7 +78,7 @@ const blogs = [
     date: 'Oct 16, 2022',
     views: 110,
     shares: 2,
-    image: '/image/blog_2.png',
+    image: withBase('/image/blog_2.png'),
   },
   {
     tags: ['前端切版', '後端整合', 'AI 趨勢應用'],
@@ -85,7 +87,7 @@ const blogs = [
     date: 'Oct 16, 2022',
     views: 110,
     shares: 2,
-    image: '/image/blog_3.png',
+    image: withBase('/image/blog_3.png'),
   },
 ];
 ---
@@ -110,13 +112,13 @@ const blogs = [
                 I&apos;m Nelson
               </h1>
               <img
-                src="/image/index_decora_6.png"
+                src={withBase('/image/index_decora_6.png')}
                 alt=""
                 aria-hidden="true"
                 class="pointer-events-none absolute right-[30.667vw] top-0 h-8.5 w-28.5 sm:right-32 md:right-36 md:top-10 md:h-9.5 md:w-32 lg:hidden"
               />
               <img
-                src="/image/index_decora_3.png"
+                src={withBase('/image/index_decora_3.png')}
                 alt=""
                 aria-hidden="true"
                 class="pointer-events-none absolute right-4 top-10 w-18 sm:right-6 md:right-10 md:top-12 md:w-22 lg:hidden"
@@ -139,7 +141,7 @@ const blogs = [
                 class="relative mx-auto aspect-4/5 w-full max-w-86 overflow-hidden bg-primary-900 md:max-w-104 lg:max-w-132 xl:max-w-156"
               >
                 <img
-                  src="/image/index_person.png"
+                  src={withBase('/image/index_person.png')}
                   alt="Nelson 人像"
                   class="h-full w-full object-cover"
                   loading="eager"
@@ -147,13 +149,13 @@ const blogs = [
                 />
               </div>
               <img
-                src="/image/index_decora_1.png"
+                src={withBase('/image/index_decora_1.png')}
                 alt=""
                 aria-hidden="true"
                 class="pointer-events-none absolute -left-13 top-14 w-24 md:-left-16 md:top-16 md:w-28 lg:-left-8 lg:top-10 lg:w-38 xl:left-[-15.95%] xl:top-[12.125%] xl:w-50"
               />
               <img
-                src="/image/index_decora_2.png"
+                src={withBase('/image/index_decora_2.png')}
                 alt=""
                 aria-hidden="true"
                 class="pointer-events-none absolute right-[9.067vw] bottom-[9.867vw] size-20 md:-right-14 md:bottom-10 md:size-24 lg:-right-8 lg:top-auto lg:bottom-10 lg:size-30 xl:right-[-10.7%] xl:bottom-[10.88%] xl:size-40"
@@ -164,31 +166,31 @@ const blogs = [
       </div>
 
       <img
-        src="/image/index_decora_3.png"
+        src={withBase('/image/index_decora_3.png')}
         alt=""
         aria-hidden="true"
         class="pointer-events-none absolute left-[4.48%] top-[7%] hidden w-35 lg:block"
       />
       <img
-        src="/image/index_decora_4.png"
+        src={withBase('/image/index_decora_4.png')}
         alt=""
         aria-hidden="true"
         class="pointer-events-none absolute left-[11.71%] top-[15%] hidden w-78 lg:block"
       />
       <img
-        src="/image/index_decora_3.png"
+        src={withBase('/image/index_decora_3.png')}
         alt=""
         aria-hidden="true"
         class="pointer-events-none absolute bottom-[24%] left-[36.6%] hidden w-20 lg:block"
       />
       <img
-        src="/image/index_decora_5.png"
+        src={withBase('/image/index_decora_5.png')}
         alt=""
         aria-hidden="true"
         class="pointer-events-none absolute bottom-[10.375%] left-56 hidden w-45 lg:block lg:left-[27.23%]"
       />
       <img
-        src="/image/index_decora_3.png"
+        src={withBase('/image/index_decora_3.png')}
         alt=""
         aria-hidden="true"
         class="pointer-events-none absolute top-[25.5%] right-[7.39%] hidden w-35 lg:block"
@@ -232,7 +234,7 @@ const blogs = [
                 <div class="flex items-center justify-between gap-3">
                   <p class="text-sm/normal sm:text-base/normal">{s.body}</p>
                   <a
-                    href="/service"
+                    href={withBase('/service')}
                     aria-label={`了解${s.zh}服務`}
                     class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-neutral-700 text-neutral-0 transition-all duration-300 hover:bg-primary-500 hover hover:-translate-y-0.5 active:translate-y-0"
                   >
@@ -292,7 +294,7 @@ const blogs = [
                     </p>
                   </div>
                   <AppButton
-                    href="/project"
+                    href={withBase('/project')}
                     label="前往專案"
                     variant="primary"
                   />
@@ -377,7 +379,7 @@ const blogs = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0 hidden lg:block">
         <img
-          src="/image/subscription_bg.png"
+          src={withBase('/image/subscription_bg.png')}
           alt=""
           aria-hidden="true"
           class="h-full w-full object-cover"
@@ -392,7 +394,7 @@ const blogs = [
         <div class="flex flex-col lg:flex-row lg:items-stretch lg:gap-6">
           <div class="w-full overflow-hidden lg:w-131.5 lg:flex-none">
             <img
-              src="/image/subscription.png"
+              src={withBase('/image/subscription.png')}
               alt="訂閱電子報"
               class="aspect-526/440 w-full object-cover lg:aspect-auto lg:h-full"
               loading="lazy"
@@ -402,7 +404,7 @@ const blogs = [
           <div class="relative flex-1">
             <div class="absolute inset-0 lg:hidden">
               <img
-                src="/image/mobile/subscription_bg.png"
+                src={withBase('/image/mobile/subscription_bg.png')}
                 alt=""
                 aria-hidden="true"
                 class="h-full w-full object-cover"
