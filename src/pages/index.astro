@@ -360,5 +360,74 @@ const blogs = [
         </div>
       </div>
     </section>
+
+    <!-- ===== SUBSCRIPTION ===== -->
+    <section class="relative overflow-hidden bg-primary-900">
+      <div class="absolute inset-0 hidden lg:block">
+        <img
+          src="/image/subscription_bg.png"
+          alt=""
+          aria-hidden="true"
+          class="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-black/60"></div>
+      </div>
+      <div class="container relative [--container-px:0] lg:[--container-px:var(--layout-gutter)]">
+        <div class="flex flex-col lg:flex-row lg:items-stretch lg:gap-6"> 
+        <div class="w-full overflow-hidden lg:w-131.5 lg:flex-none">
+          <img
+            src="/image/subscription.png"
+            alt="訂閱電子報"
+            class="aspect-526/440 w-full object-cover lg:aspect-auto lg:h-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="relative flex-1">
+          <div class="absolute inset-0 lg:hidden">
+            <img
+              src="/image/mobile/subscription_bg.png"
+              alt=""
+              aria-hidden="true"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-black/60"></div>
+          </div>
+          <div class="relative px-3 py-10 md:py-16 lg:px-0 lg:py-20">
+            <p class="text-sm/normal font-bold text-primary-100 sm:text-base">電子報訂閱</p>
+            <h2
+              class="mb-3 text-10/tight font-bold text-neutral-0 md:mb-6 lg:text-16/tight xl:text-20/tight"
+            >
+              SUBSCRIPTION
+            </h2>
+            <p class="mb-6 text-sm/normal text-neutral-0 sm:text-base">
+              你也在追求設計美感與技術落地的完美平衡嗎？作為資深設計師兼工程師，我深知跨領域協作的痛點。訂閱電子報，我將分享如何利用 AI 工具提升產能！
+            </p>
+            <form
+              class="flex h-16 items-center gap-2 rounded-full border border-neutral-0 p-2"
+              onsubmit="return false;"
+            >
+              <input
+                type="email"
+                placeholder="電子信箱"
+                class="min-w-0 flex-1 bg-transparent px-6 text-sm text-neutral-0 placeholder:text-neutral-0 outline-none"
+              />
+              <button
+                type="submit"
+                class="h-full shrink-0 rounded-full bg-neutral-0 px-6 text-sm font-bold transition-all duration-300 hover:bg-primary-500"
+              >
+                送出
+              </button>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
