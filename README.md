@@ -1,43 +1,37 @@
-# Astro Starter Kit: Minimal
+# hex-camp-2026
+
+Astro portfolio site configured for deployment to GitHub Pages.
+
+## Deploy
+
+This repo is set to publish at:
+
+https://johnsonchen3669.github.io/hex-camp-2026/
+
+### Local development
 
 ```sh
-bun create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Manual deploy to gh-pages
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run deploy
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### GitHub Pages source
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+After the first deployment, set GitHub Pages in the repository settings to deploy from the `gh-pages` branch if it is not already selected.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Scripts
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
+| Command | Action |
+| :-- | :-- |
+| `npm run dev` | Start local development server |
+| `npm run build` | Build the production site |
+| `npm run preview` | Preview the production build locally |
+| `npm run deploy` | Build and publish `dist/` to `gh-pages` |
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

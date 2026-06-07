@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "hex-camp-2026",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -8,8 +8,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "astro preview",
     "astro": "astro"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
