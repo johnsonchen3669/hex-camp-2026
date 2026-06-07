@@ -96,11 +96,11 @@ const blogs = [
     <section class="relative overflow-x-hidden">
       <div class="container">
         <div
-          class="relative min-h-[calc(100dvh-var(--site-header-height))] py-4 lg:py-0"
+          class="relative min-h-[min(calc(100dvh-var(--site-header-height)),676px)] py-4 lg:min-h-[min(calc(100dvh-var(--site-header-height)),800px)] lg:py-0"
         >
           <div class="relative flex flex-col items-center gap-6 lg:flex-row">
             <div
-              class="order-2 w-full max-w-136 py-6 lg:order-1 lg:py-0 lg:pl-14"
+              class="relative order-2 w-full max-w-136 py-6 lg:order-1 lg:py-0 lg:pl-14"
             >
               <h1
                 class="text-10/tight font-bold md:text-12/tight lg:text-16/tight xl:text-20/tight"
@@ -109,6 +109,18 @@ const blogs = [
                 <br />
                 I&apos;m Nelson
               </h1>
+              <img
+                src="/image/index_decora_6.png"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute right-[30.667vw] top-0 h-8.5 w-28.5 sm:right-32 md:right-36 md:top-10 md:h-9.5 md:w-32 lg:hidden"
+              />
+              <img
+                src="/image/index_decora_3.png"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute right-4 top-10 w-18 sm:right-6 md:right-10 md:top-12 md:w-22 lg:hidden"
+              />
               <p
                 class="mt-4 flex max-w-md flex-col gap-1 text-sm/normal md:mt-6 md:text-base/normal"
               >
@@ -138,13 +150,13 @@ const blogs = [
                 src="/image/index_decora_1.png"
                 alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute left-3 top-3 w-12 lg:left-[calc(50%-3rem)] lg:top-[12.125%] lg:w-50 xl:left-[-15.95%]"
+                class="pointer-events-none absolute -left-13 top-14 w-24 md:-left-16 md:top-16 md:w-28 lg:-left-8 lg:top-10 lg:w-38 xl:left-[-15.95%] xl:top-[12.125%] xl:w-50"
               />
               <img
                 src="/image/index_decora_2.png"
                 alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute right-1 top-52 w-14 lg:right-6 lg:top-auto lg:bottom-[10.88%] lg:w-40 xl:right-[-10.7%]"
+                class="pointer-events-none absolute right-[9.067vw] bottom-[9.867vw] size-20 md:-right-14 md:bottom-10 md:size-24 lg:-right-8 lg:top-auto lg:bottom-10 lg:size-30 xl:right-[-10.7%] xl:bottom-[10.88%] xl:size-40"
               />
             </div>
           </div>
