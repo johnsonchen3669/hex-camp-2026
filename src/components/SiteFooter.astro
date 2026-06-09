@@ -1,0 +1,102 @@
+---
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}${path.replace(/^\//, "")}`;
+---
+
+<footer>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="bg-primary-900 py-20">
+    <div class="container">
+      <div class="flex flex-col gap-12 lg:grid lg:grid-cols-[40%_1fr] lg:gap-20">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <div>
+            <p class="text-sm/normal font-bold text-neutral-0 sm:text-base">與我聯絡</p>
+            <h2 class="text-10/tight font-bold text-neutral-0 lg:text-20/tight">CONTACT</h2>
+          </div>
+          <p class="text-sm/normal text-neutral-0 sm:text-base">
+            若有數位產品設計和開發相關問題<br />
+            歡迎這裡查看 或 直接與我聯絡！
+          </p>
+        </div>
+
+        <form class="flex flex-col gap-4 lg:row-span-2" onsubmit="return false;">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <input
+              type="text"
+              placeholder="姓名"
+              class="h-16 rounded-full border border-neutral-0 bg-transparent px-6 text-sm text-neutral-0 placeholder:text-neutral-0 outline-none focus:border-primary-500"
+            />
+            <input
+              type="tel"
+              placeholder="手機號碼"
+              class="h-16 rounded-full border border-neutral-0 bg-transparent px-6 text-sm text-neutral-0 placeholder:text-neutral-0 outline-none focus:border-primary-500"
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="電子信箱"
+            class="h-16 rounded-full border border-neutral-0 bg-transparent px-6 text-sm text-neutral-0 placeholder:text-neutral-0 outline-none focus:border-primary-500"
+          />
+          <textarea
+            placeholder="備註"
+            rows="4"
+            class="resize-none rounded-3xl border border-neutral-0 bg-transparent p-6 text-sm text-neutral-0 placeholder:text-neutral-0 outline-none focus:border-primary-500"
+          ></textarea>
+          <button
+            type="submit"
+            class="h-16 w-full rounded-full bg-neutral-0 text-sm font-bold text-primary-900 transition-all duration-300 hover:bg-primary-500"
+          >
+            送出
+          </button>
+        </form>
+
+        <div class="flex flex-col gap-3 lg:self-end">
+          <div class="flex gap-3">
+            <!-- Instagram -->
+            <a
+              href="#"
+              aria-label="Instagram"
+              class="flex size-11 items-center justify-center rounded-full border border-neutral-0/40 text-neutral-0 transition-all duration-300 hover:border-primary-500 hover:text-primary-500 sm:size-12"
+            >
+              <svg class="size-5 sm:size-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 4C9.829 4 9.556 4.01 8.703 4.048C7.85 4.088 7.269 4.222 6.76 4.42C6.22584 4.62033 5.74214 4.9354 5.343 5.343C4.9354 5.74214 4.62033 6.22584 4.42 6.76C4.222 7.268 4.087 7.85 4.048 8.7C4.01 9.555 4 9.827 4 12.001C4 14.173 4.01 14.445 4.048 15.298C4.088 16.15 4.222 16.731 4.42 17.24C4.625 17.766 4.898 18.212 5.343 18.657C5.787 19.102 6.233 19.376 6.759 19.58C7.269 19.778 7.849 19.913 8.701 19.952C9.555 19.99 9.827 20 12 20C14.173 20 14.444 19.99 15.298 19.952C16.149 19.912 16.732 19.778 17.241 19.58C17.7748 19.3795 18.2581 19.0645 18.657 18.657C19.102 18.212 19.375 17.766 19.58 17.24C19.777 16.731 19.912 16.15 19.952 15.298C19.99 14.445 20 14.173 20 12C20 9.827 19.99 9.555 19.952 8.701C19.912 7.85 19.777 7.268 19.58 6.76C19.3797 6.22584 19.0646 5.74214 18.657 5.343C18.2579 4.9354 17.7742 4.62033 17.24 4.42C16.73 4.222 16.148 4.087 15.297 4.048C14.443 4.01 14.172 4 11.998 4H12ZM11.283 5.442H12.001C14.137 5.442 14.39 5.449 15.233 5.488C16.013 5.523 16.437 5.654 16.719 5.763C17.092 5.908 17.359 6.082 17.639 6.362C17.919 6.642 18.092 6.908 18.237 7.282C18.347 7.563 18.477 7.987 18.512 8.767C18.551 9.61 18.559 9.863 18.559 11.998C18.559 14.133 18.551 14.387 18.512 15.23C18.477 16.01 18.346 16.433 18.237 16.715C18.1078 17.0619 17.9032 17.3758 17.638 17.634C17.358 17.914 17.092 18.087 16.718 18.232C16.438 18.342 16.014 18.472 15.233 18.508C14.39 18.546 14.137 18.555 12.001 18.555C9.865 18.555 9.611 18.546 8.768 18.508C7.988 18.472 7.565 18.342 7.283 18.232C6.93583 18.1033 6.6216 17.899 6.363 17.634C6.09727 17.3756 5.89233 17.0614 5.763 16.714C5.654 16.433 5.523 16.009 5.488 15.229C5.45 14.386 5.442 14.133 5.442 11.996C5.442 9.859 5.45 9.608 5.488 8.765C5.524 7.985 5.654 7.561 5.764 7.279C5.909 6.906 6.083 6.639 6.363 6.359C6.643 6.079 6.909 5.906 7.283 5.761C7.565 5.651 7.988 5.521 8.768 5.485C9.506 5.451 9.792 5.441 11.283 5.44V5.442ZM16.271 6.77C16.0164 6.77 15.7722 6.87114 15.5922 7.05118C15.4121 7.23121 15.311 7.47539 15.311 7.73C15.311 7.98461 15.4121 8.22879 15.5922 8.40882C15.7722 8.58886 16.0164 8.69 16.271 8.69C16.5256 8.69 16.7698 8.58886 16.9498 8.40882C17.1299 8.22879 17.231 7.98461 17.231 7.73C17.231 7.47539 17.1299 7.23121 16.9498 7.05118C16.7698 6.87114 16.5256 6.77 16.271 6.77ZM12.001 7.892C9.76254 7.8835 7.8279 9.77841 7.8279 12.0005C7.8279 14.2226 9.76254 16.1175 12.001 16.109C14.2395 16.1005 16.0459 14.2226 16.0459 12.0005C16.0459 9.77841 14.2395 7.90047 12.001 7.892ZM12.001 9.333C13.4783 9.333 14.668 10.5222 14.668 12C14.668 13.4778 13.4783 14.667 12.001 14.667C10.5237 14.667 9.334 13.4778 9.334 12C9.334 10.5222 10.5237 9.333 12.001 9.333Z" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              class="flex size-11 items-center justify-center rounded-full border border-neutral-0/40 text-neutral-0 transition-all duration-300 hover:border-primary-500 hover:text-primary-500 sm:size-12"
+            >
+              <svg class="size-5 sm:size-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a
+              href="#"
+              aria-label="GitHub"
+              class="flex size-11 items-center justify-center rounded-full border border-neutral-0/40 text-neutral-0 transition-all duration-300 hover:border-primary-500 hover:text-primary-500 sm:size-12"
+            >
+              <svg class="size-5 sm:size-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+              </svg>
+            </a>
+          </div>
+          <a
+            href="mailto:service@hexschool.com"
+            class="flex items-center gap-2 text-sm/normal text-neutral-0 transition hover:text-primary-500 sm:text-base"
+          >
+            <svg class="size-5 sm:size-6" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L21 7.39816V20H3V7.39816L12 2ZM12 12.5707L19.8 7.87045L12 3.17025L4.2 7.87045L12 12.5707ZM12 13.7409L4 8.92799V18.9892H20V8.92799L12 13.7409Z"
+                fill="white"
+              />
+            </svg>
+            <span>service@hexschool.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
