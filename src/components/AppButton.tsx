@@ -34,7 +34,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     'min-h-11  bg-neutral-700 text-neutral-0 hover:bg-primary-500 hover:text-neutral-900 hover:shadow-[0_4px_14px_rgba(245,184,123,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none',
   outline:
-    'min-h-11 border border-neutral-700 text-neutral-700 hover:bg-neutral-700 hover:text-neutral-0 hover:-translate-y-0.5 active:translate-y-0',
+    'min-h-11 border border-neutral-700 hover:bg-neutral-700 hover:text-neutral-0 hover:-translate-y-0.5 active:translate-y-0',
 };
 
 export default function AppButton({
