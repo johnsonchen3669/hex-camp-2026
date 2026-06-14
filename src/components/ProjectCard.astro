@@ -1,0 +1,192 @@
+---
+import AppButton from "./AppButton.tsx";
+
+interface ModalContent {
+  body: string;
+  designPrinciple: string;
+  devMethod: string;
+  image: string;
+}
+
+interface Props {
+  date: string;
+  tags: string[];
+  title: string;
+  desc: string;
+  image: string;
+  mobileImage: string;
+  href?: string;
+  bg?: string;
+  modal?: ModalContent;
+}
+
+const {
+  date,
+  tags,
+  title,
+  desc,
+  image,
+  mobileImage,
+  href = '#',
+  bg = 'bg-primary-50',
+  modal,
+} = Astro.props;
+
+const modalId = modal ? `pm-${Math.random().toString(36).slice(2, 9)}` : undefined;
+---
+
+<article class="group relative flex flex-col overflow-hidden text-center aspect-351/580 md:block md:aspect-auto">
+  <img src={mobileImage} alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover object-center md:hidden" />
+  <img src={image} alt="" aria-hidden="true" class="absolute inset-0 hidden h-full w-full object-cover object-center md:block" />
+  <div class="absolute inset-0 bg-neutral-0/10"></div>
+  <div class={`relative z-10 mx-5 mb-5 mt-auto flex flex-col items-center gap-6 p-6 md:m-7 md:min-h-66 md:w-1/2 md:justify-center md:p-7 lg:max-w-96.5 xl:w-[30.93%] ${bg}`}>
+    <div class="flex flex-col gap-3">
+      <p class="text-3.25/normal sm:text-sm/normal">{date}</p>
+      <p class="text-sm/normal font-medium sm:text-base">{tags.join(' · ')}</p>
+      <h3 class="text-xl/normal font-bold lg:text-2xl/normal">{title}</h3>
+      <p class="text-sm/normal sm:text-base/normal">{desc}</p>
+    </div>
+    {modal ? (
+      <button
+        type="button"
+        data-modal-target={modalId}
+        class="inline-flex w-fit min-h-11 items-center justify-center rounded-full bg-neutral-700 px-5 py-3 text-sm/normal font-bold text-neutral-0 transition-all duration-300 hover:bg-primary-500 hover:-translate-y-0.5 active:translate-y-0 sm:px-6 sm:text-base"
+      >
+        前往專案
+      </button>
+    ) : (
+      <AppButton href={href} label="前往專案" variant="primary" />
+    )}
+  </div>
+</article>
+
+{modal && modalId && (
+  <div
+    id={modalId}
+    class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 opacity-0 transition-opacity duration-300"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="flex min-h-full justify-center p-3 md:p-10">
+      <!-- Panel: click inside should NOT close the modal -->
+      <div class="relative w-full max-w-269 -translate-y-4 self-start bg-neutral-0 transition-transform duration-300 ease-out" data-modal-panel>
+
+        <!-- Header: close button -->
+        <div class="flex justify-end border-b border-neutral-700/10 pt-2 pr-3 pb-2 md:pt-3 md:pr-6 md:pb-3">
+          <button
+            type="button"
+            data-modal-close={modalId}
+            aria-label="關閉"
+            class="flex size-11 items-center justify-center rounded-full transition hover:bg-neutral-100 md:size-12"
+          >
+            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Banner image -->
+        <div class="h-73.5 overflow-hidden">
+          <img src={image} alt={title} class="h-full w-full object-cover" />
+        </div>
+
+        <!-- Description -->
+        <div class="py-6 px-3 md:p-10">
+          <div class="flex flex-col gap-6 md:gap-10">
+
+            <!-- Info row: tags + date -->
+            <div class="flex items-center justify-between border-b border-neutral-700/10 pb-6 md:pb-10">
+              <p class="text-sm/normal font-medium md:text-base/normal">{tags.join(' · ')}</p>
+              <span class="shrink-0 text-sm/normal font-medium md:text-base/normal">{date}</span>
+            </div>
+
+            <!-- Title block -->
+            <div class="flex flex-col gap-3 border-b border-neutral-700/10 pb-6 md:pb-10">
+              <h2 class="text-2xl/normal font-bold md:text-7/normal">{title}</h2>
+              <p class="text-sm/normal font-medium md:text-base/normal">{desc}</p>
+            </div>
+
+            <!-- Two-column body content -->
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+              <p class="text-sm/normal text-neutral-500 md:text-base/normal lg:flex-1">{modal.body}</p>
+              <!-- Divider: horizontal on mobile, vertical on desktop -->
+              <div class="h-px w-full bg-neutral-500/40 lg:h-auto lg:w-px lg:self-stretch"></div>
+              <div class="flex flex-col gap-2 text-sm/normal text-neutral-500 md:text-base/normal lg:w-77.5">
+                <p>設計原則：{modal.designPrinciple}</p>
+                <p>開發方式：{modal.devMethod}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Main content image -->
+        <div class="flex justify-center bg-primary-50 px-3 py-10 md:px-10 md:py-20">
+          <img
+            src={modal.image}
+            alt={title}
+            class="w-full max-w-180"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+)}
+
+<script>
+  function openModal(modalEl: HTMLElement) {
+    const panel = modalEl.querySelector<HTMLElement>('[data-modal-panel]');
+    modalEl.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    // Double rAF: ensure element is painted before transition starts
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modalEl.classList.remove('opacity-0');
+        panel?.classList.remove('-translate-y-4');
+      });
+    });
+  }
+
+  function closeModal(modalEl: HTMLElement) {
+    const panel = modalEl.querySelector<HTMLElement>('[data-modal-panel]');
+    modalEl.classList.add('opacity-0');
+    panel?.classList.add('-translate-y-4');
+    document.body.classList.remove('overflow-hidden');
+    modalEl.addEventListener('transitionend', () => {
+      modalEl.classList.add('hidden');
+    }, { once: true });
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+
+    const openBtn = target.closest<HTMLElement>('[data-modal-target]');
+    if (openBtn?.dataset.modalTarget) {
+      const modal = document.getElementById(openBtn.dataset.modalTarget);
+      if (modal) openModal(modal);
+      return;
+    }
+
+    const closeBtn = target.closest<HTMLElement>('[data-modal-close]');
+    if (closeBtn?.dataset.modalClose) {
+      const modal = document.getElementById(closeBtn.dataset.modalClose);
+      if (modal) closeModal(modal);
+      return;
+    }
+
+    // Close on backdrop click (clicking outside the panel)
+    const dialog = target.closest<HTMLElement>('[role="dialog"]');
+    if (dialog && !target.closest('[data-modal-panel]')) {
+      closeModal(dialog);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll<HTMLElement>('[role="dialog"]:not(.hidden)').forEach(closeModal);
+    }
+  });
+</script>
