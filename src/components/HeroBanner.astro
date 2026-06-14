@@ -1,0 +1,39 @@
+---
+interface Props {
+  enTitle: string;
+  zhTitle: string;
+  mobileSrc: string;
+  desktopSrc: string;
+  decorativeText?: string;
+}
+
+const { enTitle, zhTitle, mobileSrc, desktopSrc, decorativeText } = Astro.props;
+---
+
+<section class="relative flex min-h-95 items-center overflow-hidden bg-primary-900">
+  <img
+    src={mobileSrc}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover object-top md:hidden"
+  />
+  <img
+    src={desktopSrc}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 hidden h-full w-full object-cover object-top md:block"
+  />
+  <div class="absolute inset-0 bg-black/60"></div>
+  {decorativeText && (
+    <span
+      aria-hidden="true"
+      class="absolute -bottom-13 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[160px] font-bold leading-tight text-primary-50 opacity-20 md:-bottom-30 md:text-[300px]"
+    >
+      {decorativeText}
+    </span>
+  )}
+  <div class="relative container py-20 text-center">
+    <h1 class="text-10/tight font-bold text-neutral-0 lg:text-20/tight">{enTitle}</h1>
+    <p class="text-7/tight font-bold text-neutral-0 lg:text-12/tight">{zhTitle}</p>
+  </div>
+</section>
