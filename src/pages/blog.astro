@@ -70,7 +70,7 @@ const posts = [
         <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[196px_1fr] lg:gap-6">
 
           <!-- Left: category sidebar -->
-          <aside>
+          <aside data-aos="fade-right">
             <nav aria-label="文章分類">
               <div class="grid auto-cols-max grid-flow-col gap-2 overflow-x-auto pb-2 lg:grid-flow-row lg:grid-cols-1 lg:gap-0 lg:pb-0">
                 {
@@ -94,8 +94,8 @@ const posts = [
           <!-- Right: blog list -->
           <div class="flex flex-col gap-7">
             {
-              posts.map((post) => (
-                <a href={withBase("/article")} class="group flex flex-col gap-6 sm:flex-row">
+              posts.map((post, i) => (
+                <a data-aos="fade-up" data-aos-delay={i * 80} href={withBase("/article")} class="group flex flex-col gap-6 sm:flex-row">
                   <!-- Image -->
                   <div class="aspect-526/256 shrink-0 overflow-hidden sm:w-64 lg:w-64 xl:w-131.5">
                     <img

@@ -35,3 +35,13 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '
 		<SiteFooter />
 	</body>
 </html>
+
+<script>
+  import AOS from 'aos';
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 60,
+  });
+</script>

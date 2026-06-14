@@ -107,6 +107,7 @@ const blogs = [
               class="relative order-2 w-full max-w-136 py-6 lg:order-1 lg:py-0 lg:pl-14"
             >
               <h1
+                data-aos="fade-down"
                 class="text-10/tight font-bold md:text-12/tight lg:text-16/tight xl:text-20/tight"
               >
                 Hello
@@ -126,19 +127,21 @@ const blogs = [
                 class="pointer-events-none absolute right-4 top-10 w-18 sm:right-6 md:right-10 md:top-12 md:w-22 lg:hidden"
               />
               <p
+                data-aos="fade-up"
+                data-aos-delay="200"
                 class="mt-4 flex max-w-md flex-col gap-1 text-sm/normal md:mt-6 md:text-base/normal"
               >
                 <span>我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師</span>
                 <span>喜歡把美學和程式結合，打造一個又一個精美的網頁設計！</span
                 >
               </p>
-              <div class="mt-8 flex flex-wrap gap-3 lg:mt-15">
+              <div data-aos="fade-up" data-aos-delay="350" class="mt-8 flex flex-wrap gap-3 lg:mt-15">
                 <AppButton href="/contact" label="與我聯絡" variant="primary" />
                 <AppButton href="/project" label="我的履歷" variant="outline" />
               </div>
             </div>
 
-            <div class="relative order-1 lg:order-2 lg:min-w-0 lg:flex-1">
+            <div data-aos="fade-left" data-aos-delay="100" class="relative order-1 lg:order-2 lg:min-w-0 lg:flex-1">
               <div
                 class="relative mx-auto aspect-4/5 w-full max-w-86 overflow-hidden bg-primary-900 md:max-w-104 lg:max-w-132 xl:max-w-156"
               >
@@ -202,7 +205,7 @@ const blogs = [
     <!-- ===== SERVICES ===== -->
     <section id="service" class="overflow-hidden bg-primary-900 py-10 md:py-20">
       <div class="container">
-        <div class="mb-10">
+        <div data-aos="fade-up" class="mb-10">
           <p
             class="text-sm/normal font-bold text-neutral-0 sm:text-base/normal"
           >
@@ -216,8 +219,8 @@ const blogs = [
           class="flex gap-6 overflow-x-auto sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-4"
         >
           {
-            services.map((s) => (
-              <article class="flex w-65 flex-none flex-col gap-2 bg-primary-50 p-3 sm:w-auto md:gap-3 md:p-6 ">
+            services.map((s, i) => (
+              <article data-aos="fade-up" data-aos-delay={i * 100} class="flex w-65 flex-none flex-col gap-2 bg-primary-50 p-3 sm:w-auto md:gap-3 md:p-6 ">
                 <div class="flex items-start justify-between gap-2 md:gap-3">
                   <div>
                     <p class="text-sm/normal font-bold sm:text-base">{s.en}</p>
@@ -260,13 +263,14 @@ const blogs = [
     <!-- ===== PROJECTS ===== -->
     <section id="project" class="py-10 md:py-20">
       <div class="container">
-        <div class="mb-6 text-center md:mb-10">
+        <div data-aos="fade-up" class="mb-6 text-center md:mb-10">
           <p class="text-sm/normal font-bold sm:text-base/normal">專案作品</p>
           <h2 class="text-10/tight font-bold lg:text-20/tight">PROJECTS</h2>
         </div>
         <div class="flex flex-col gap-6">
           {
-            projects.map((p) => (
+            projects.map((p, i) => (
+              <div data-aos="fade-up" data-aos-delay={i * 100}>
               <ProjectCard
                 date={p.date}
                 tags={p.tags}
@@ -277,6 +281,7 @@ const blogs = [
                 bg={p.bg}
                 href="/project"
               />
+              </div>
             ))
           }
         </div>
@@ -289,7 +294,7 @@ const blogs = [
     <!-- ===== BLOGS ===== -->
     <section id="blog" class="overflow-hidden bg-primary-50 py-20">
       <div class="container">
-        <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <div data-aos="fade-up" class="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p class="text-sm/normal font-bold sm:text-base/normal">部落格</p>
             <h2 class="text-10/tight font-bold lg:text-20/tight">BLOGS</h2>
@@ -300,17 +305,18 @@ const blogs = [
           class="flex gap-3 overflow-x-auto md:grid md:overflow-visible md:gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {
-            blogs.map((b) => (
-              <BlogCard
-                class="w-65 flex-none md:w-auto"
-                tags={b.tags}
-                title={b.title}
-                date={b.date}
-                views={b.views}
-                shares={b.shares}
-                image={b.image}
-                href={withBase('/article')}
-              />
+            blogs.map((b, i) => (
+              <div data-aos="fade-up" data-aos-delay={i * 100} class="w-65 flex-none md:w-auto">
+                <BlogCard
+                  tags={b.tags}
+                  title={b.title}
+                  date={b.date}
+                  views={b.views}
+                  shares={b.shares}
+                  image={b.image}
+                  href={withBase('/article')}
+                />
+              </div>
             ))
           }
         </div>
@@ -334,7 +340,7 @@ const blogs = [
         class="container relative [--container-px:0] lg:[--container-px:var(--layout-gutter)]"
       >
         <div class="flex flex-col lg:flex-row lg:items-stretch lg:gap-6">
-          <div class="w-full overflow-hidden lg:w-131.5 lg:flex-none">
+          <div data-aos="fade-right" class="w-full overflow-hidden lg:w-131.5 lg:flex-none">
             <img
               src={withBase('/image/subscription.png')}
               alt="訂閱電子報"
@@ -343,7 +349,7 @@ const blogs = [
               decoding="async"
             />
           </div>
-          <div class="relative flex-1">
+          <div data-aos="fade-left" class="relative flex-1">
             <div class="absolute inset-0 lg:hidden">
               <img
                 src={withBase('/image/mobile/subscription_bg.png')}

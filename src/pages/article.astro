@@ -95,7 +95,7 @@ const relatedPosts = [
         <div class="mx-auto max-w-269">
 
           <!-- Top meta -->
-          <div class="flex flex-wrap items-center justify-between gap-4">
+          <div data-aos="fade-up" class="flex flex-wrap items-center justify-between gap-4">
             <p class="text-sm/normal md:text-base/normal">
               {articleTags.join(" · ")}
             </p>
@@ -103,28 +103,28 @@ const relatedPosts = [
           </div>
 
           <!-- Title -->
-          <div class="mt-4">
+          <div data-aos="fade-up" data-aos-delay="100" class="mt-4">
             <h1 class="text-7/tight font-bold md:text-12/tight">
               當 AI 遇上介面設計：資深設計師如何利用生成式工具重塑前端開發工作流與視覺想像力
             </h1>
           </div>
 
           <!-- Subtitle -->
-          <div class="mt-4">
+          <div data-aos="fade-up" data-aos-delay="200" class="mt-4">
             <p class="text-lg/normal font-bold md:text-2xl/normal">
               從像素到程式碼，探討 AI 如何成為數位職人的最強外掛，在美學與邏輯的交界處創造全新價值。
             </p>
           </div>
 
           <!-- Intro -->
-          <div class="mt-4">
+          <div data-aos="fade-up" data-aos-delay="300" class="mt-4">
             <p class="text-sm/normal md:text-base/normal">
               在跨入 UI/UX 與前端領域的第十年，我見證了無數技術更迭，但 AI 的出現無疑是最具衝擊性的一場革命。本文將深度解析資深設計師如何將生成式 AI 整合進現有工作流，透過 AI 釋放視覺想像力，並利用智慧化工具優化前端開發效率，實踐美學與技術的完美共生。
             </p>
           </div>
 
           <!-- Section 1 -->
-          <div class="mt-10">
+          <div data-aos="fade-up" class="mt-10">
             <h2 class="text-2xl/normal font-bold md:text-8/normal">
               視覺想像力的無限延伸：從 Moodboard 到驚艷視覺
             </h2>
@@ -134,7 +134,7 @@ const relatedPosts = [
           </div>
 
           <!-- Image 1 -->
-          <div class="mt-4">
+          <div data-aos="zoom-in" class="mt-4">
             <img
               src={withBase("/image/blog_content_1.png")}
               alt="利用 AI 快速生成的品牌視覺概念圖"
@@ -148,7 +148,7 @@ const relatedPosts = [
           </div>
 
           <!-- Pull quote -->
-          <blockquote class="mt-10 bg-primary-50 px-6 py-6 text-center">
+          <blockquote data-aos="zoom-in" class="mt-10 bg-primary-50 px-6 py-6 text-center">
             <p class="text-sm/normal md:text-base/normal">我認為</p>
             <p class="mt-2 text-xl/normal font-bold">
               AI 不會取代設計師，但那些懂得與 AI 協作的人，將會定義下一個世代的設計標準
@@ -156,7 +156,7 @@ const relatedPosts = [
           </blockquote>
 
           <!-- Section 2 -->
-          <div class="mt-10">
+          <div data-aos="fade-up" class="mt-10">
             <h2 class="text-2xl/normal font-bold md:text-8/normal">
               工作流的重塑：當設計稿與程式碼無縫銜接
             </h2>
@@ -166,7 +166,7 @@ const relatedPosts = [
           </div>
 
           <!-- Image 2 -->
-          <div class="mt-4">
+          <div data-aos="zoom-in" class="mt-4">
             <img
               src={withBase("/image/blog_content_2.png")}
               alt="AI 輔助生成的 Clean Code 結構"
@@ -180,7 +180,7 @@ const relatedPosts = [
           </div>
 
           <!-- Section 3 -->
-          <div class="mt-10">
+          <div data-aos="fade-up" class="mt-10">
             <h2 class="text-2xl/normal font-bold md:text-8/normal">
               跨領域利器：精選 AI 工具的實戰應用對比
             </h2>
@@ -190,7 +190,7 @@ const relatedPosts = [
           </div>
 
           <!-- Table -->
-          <div class="mt-4 overflow-x-auto">
+          <div data-aos="fade-up" class="mt-4 overflow-x-auto">
             <p class="mb-4 text-2xl/normal font-bold">
               2026 數位職人必備 AI 工具效能對比表
             </p>
@@ -268,7 +268,7 @@ const relatedPosts = [
     <section class="py-10 md:py-20">
       <div class="container">
         <!-- Section title -->
-        <div class="mb-10">
+        <div data-aos="fade-up" class="mb-10">
           <p class="text-base/normal font-bold">相關文章</p>
           <h2 class="text-10/tight font-bold lg:text-20/tight">RELATED BLOG</h2>
         </div>
@@ -276,17 +276,18 @@ const relatedPosts = [
         <!-- 3-col grid, mobile horizontal scroll -->
         <div class="flex gap-3 overflow-x-auto md:grid md:overflow-visible md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {
-            relatedPosts.map((post) => (
-              <BlogCard
-                class="w-65 flex-none md:w-auto"
-                tags={post.tags}
-                title={post.title}
-                date={post.date}
-                views={post.views}
-                shares={post.shares}
-                image={post.image}
-                href={withBase("/article")}
-              />
+            relatedPosts.map((post, i) => (
+              <div data-aos="fade-up" data-aos-delay={i * 100} class="w-65 flex-none md:w-auto">
+                <BlogCard
+                  tags={post.tags}
+                  title={post.title}
+                  date={post.date}
+                  views={post.views}
+                  shares={post.shares}
+                  image={post.image}
+                  href={withBase("/article")}
+                />
+              </div>
             ))
           }
         </div>

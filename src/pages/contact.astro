@@ -24,13 +24,15 @@ const withBase = (path: string) =>
         CONTACT
       </span>
       <div class="relative container py-20 text-center">
-        <p class="text-sm/normal font-bold tracking-widest text-primary-500 sm:text-base/normal">LET'S WORK TOGETHER</p>
-        <h1 class="mt-1 text-10/tight font-bold text-neutral-0 lg:text-20/tight">CONTACT</h1>
-        <p class="text-7/tight font-bold text-neutral-0 lg:text-12/tight">與我聯絡</p>
-        <p class="mx-auto mt-4 max-w-md text-sm/normal text-neutral-0/70 sm:text-base/normal">
+        <p data-aos="fade-down" class="text-sm/normal font-bold tracking-widest text-primary-500 sm:text-base/normal">LET'S WORK TOGETHER</p>
+        <h1 data-aos="fade-down" data-aos-delay="100" class="mt-1 text-10/tight font-bold text-neutral-0 lg:text-20/tight">CONTACT</h1>
+        <p data-aos="fade-down" data-aos-delay="150" class="text-7/tight font-bold text-neutral-0 lg:text-12/tight">與我聯絡</p>
+        <p data-aos="fade-up" data-aos-delay="250" class="mx-auto mt-4 max-w-md text-sm/normal text-neutral-0/70 sm:text-base/normal">
           有想法或合作機會？隨時歡迎留下訊息
         </p>
         <a
+          data-aos="fade-up"
+          data-aos-delay="350"
           href="#contact-section"
           class="mt-8 inline-flex items-center gap-2 border border-neutral-0/60 px-6 py-3 text-sm/normal font-bold text-neutral-0 transition hover:border-neutral-0 hover:bg-neutral-0 hover:text-primary-900 sm:text-base/normal"
         >
@@ -48,7 +50,7 @@ const withBase = (path: string) =>
         <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
 
           <!-- Left: Info -->
-          <div class="flex flex-col gap-8">
+          <div data-aos="fade-right" class="flex flex-col gap-8">
             <div>
               <p class="text-sm/normal font-bold sm:text-base/normal">GET IN TOUCH</p>
               <h2 class="text-10/tight font-bold lg:text-12/tight">讓我們一起<br />創造出色作品</h2>
@@ -126,7 +128,7 @@ const withBase = (path: string) =>
           </div>
 
           <!-- Right: Form -->
-          <div class="bg-primary-50 p-6 md:p-10">
+          <div data-aos="fade-left" class="bg-primary-50 p-6 md:p-10">
             <h3 class="mb-6 text-xl/normal font-bold sm:text-2xl/normal">傳送訊息</h3>
             <form id="contact-form" novalidate class="flex flex-col gap-5">
               <div class="grid gap-4 sm:grid-cols-2">
@@ -231,7 +233,7 @@ const withBase = (path: string) =>
       >
         SERVICES
       </span>
-      <div class="relative container-narrow text-center">
+      <div data-aos="fade-up" class="relative container-narrow text-center">
         <p class="text-sm/normal font-bold tracking-widest text-primary-500 sm:text-base/normal">NOT SURE YET?</p>
         <h2 class="mt-2 text-7/tight font-bold text-neutral-0 lg:text-10/tight">先了解我的服務項目</h2>
         <p class="mx-auto mt-4 max-w-md text-sm/normal text-neutral-0/70 sm:text-base/normal">

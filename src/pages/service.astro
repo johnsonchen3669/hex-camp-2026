@@ -114,15 +114,17 @@ const faqs = [
       <div class="absolute inset-0 bg-black/60"></div>
       <div class="relative container-narrow flex flex-col gap-6 py-10 md:gap-10 md:py-20 md:justify-between">
         <!-- Title -->
-        <div class="text-center">
+        <div data-aos="fade-down" class="text-center">
           <h1 class="text-10/tight font-bold text-neutral-0 sm:text-20/tight">SERVICES</h1>
           <p class="text-10/tight font-bold text-neutral-0 sm:text-12/tight">服務項目</p>
         </div>
         <!-- Service Tabs -->
         <div class="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-4">
           {
-            services.map((s) => (
+            services.map((s, i) => (
               <div
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
                 class={`flex flex-col items-center justify-center gap-3 py-4 px-3 text-center md:p-8 ${
                   s.active
                     ? "bg-primary-900 text-neutral-0"
@@ -152,7 +154,7 @@ const faqs = [
       <div class="container-narrow">
         <div class="grid gap-6 lg:grid-cols-[416px_1fr]">
           <!-- Left: title -->
-          <div class="flex flex-col items-center lg:items-start">
+          <div data-aos="fade-right" class="flex flex-col items-center lg:items-start">
             <p class="text-sm/normal font-bold text-neutral-0 sm:text-base">SERVICE STEPS</p>
             <h2 class="text-10/tight font-bold text-neutral-0 lg:text-12/tight">服務流程</h2>
           </div>
@@ -160,7 +162,7 @@ const faqs = [
           <div class="flex flex-col">
             {
               steps.map((step, i) => (
-                <div class="flex gap-6">
+                <div data-aos="fade-up" data-aos-delay={i * 100} class="flex gap-6">
                   <!-- number + line -->
                   <div class="flex flex-col items-center">
                     <div class="flex size-9 shrink-0 items-center justify-center rounded-full bg-neutral-0 sm:size-10">
@@ -186,14 +188,14 @@ const faqs = [
     <!-- ===== USER CASE ===== -->
     <section class="bg-neutral-0 py-10 md:py-20">
       <div class="container-narrow">
-        <div class="mb-10">
+        <div data-aos="fade-up" class="mb-10">
           <p class="text-sm/normal font-bold sm:text-base">USER CASE</p>
           <h2 class="text-10/tight font-bold lg:text-12/tight">客戶案例</h2>
         </div>
         <div class="grid gap-6 sm:grid-cols-2">
           {
-            cases.map((c) => (
-              <article class="flex flex-col gap-3">
+            cases.map((c, i) => (
+              <article data-aos="fade-up" data-aos-delay={i * 150} class="flex flex-col gap-3">
                 <div class="overflow-hidden">
                   <img
                     src={c.image}
@@ -232,15 +234,15 @@ const faqs = [
       <div class="container-narrow">
         <div class="grid gap-10 lg:grid-cols-[416px_1fr] lg:gap-6">
           <!-- Left: title -->
-          <div>
+          <div data-aos="fade-left">
             <p class="text-sm/normal font-bold sm:text-base">FAQ</p>
             <h2 class="text-10/tight font-bold lg:text-12/tight">常見問題</h2>
           </div>
           <!-- Right: accordion -->
           <div class="flex flex-col">
             {
-              faqs.map((faq) => (
-                <details class="group faq-item -mt-px border-y border-primary-900 first:mt-0">
+              faqs.map((faq, i) => (
+                <details data-aos="fade-up" data-aos-delay={i * 80} class="group faq-item -mt-px border-y border-primary-900 first:mt-0">
                   <summary class="flex cursor-pointer list-none items-center gap-4 p-6">
                     <span class="w-8 shrink-0 text-lg/normal font-bold">{faq.num}</span>
                     <span class="flex-1 text-base/normal font-bold sm:text-lg/normal">{faq.q}</span>
