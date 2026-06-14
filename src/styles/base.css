@@ -6,3 +6,6 @@ body {
   color: var(--color-neutral-700);
   font-weight: 500;
 }
+button {
+  cursor: pointer;
+}

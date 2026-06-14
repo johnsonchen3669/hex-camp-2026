@@ -1,5 +1,6 @@
 :root {
-  --layout-width: 82.5rem; /* 1320px */
+  --layout-width: 82.5rem; /* 1320px = 1296px content + 12px×2 gutter */
+  --layout-narrow-width: 68.75rem; /* 1100px = 1076px content + 12px×2 gutter */
   --layout-gutter: 0.75rem; /* 12px */
   --site-header-height: 64px;
 }
@@ -34,7 +35,9 @@
 
 	--text-3.25: 0.8125rem; /* 13px */
   --text-7: 1.75rem; /* 28px */
+  --text-8: 2rem; /* 32px */
   --text-10: 2.5rem; /* 40px */
+  --text-12: 3rem; /* 48px */
   --text-20: 5rem; /* 80px */
 
   --leading-tight: 1.2;

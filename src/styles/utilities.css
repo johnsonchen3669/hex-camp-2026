@@ -3,3 +3,9 @@
   padding-inline: var(--container-px, var(--layout-gutter));
   @apply 2xl:max-w-(--layout-width);
 }
+
+@utility container-narrow {
+  margin-inline: auto;
+  padding-inline: var(--container-px, var(--layout-gutter));
+  max-width: var(--layout-narrow-width);
+}
