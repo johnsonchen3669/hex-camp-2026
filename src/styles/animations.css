@@ -1,0 +1,87 @@
+/* ===== Hero Banner Keyframes ===== */
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes hero-float-down {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(12px); }
+}
+
+@keyframes hero-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg);    opacity: 1; }
+  30%       { transform: scale(1.18) rotate(8deg);  opacity: 0.85; }
+  65%       { transform: scale(0.88) rotate(-5deg); opacity: 0.9; }
+}
+
+@keyframes hero-fade-in-scale {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Hero Decorative Image Classes ===== */
+
+/* decora_6 — 手機版 H1 旁小裝飾 */
+.hero-decora-6 {
+  animation:
+    hero-float 3.8s ease-in-out infinite,
+    hero-fade-in-scale 0.6s ease-out 0.3s backwards;
+}
+
+/* decora_3 手機版 */
+.hero-decora-3-mobile {
+  animation:
+    hero-sparkle 2.8s ease-in-out 0.5s infinite,
+    hero-fade-in-scale 0.6s ease-out 0.5s backwards;
+}
+
+/* decora_1 — 人像左側 */
+.hero-decora-1 {
+  animation:
+    hero-float 4.2s ease-in-out infinite,
+    hero-fade-in-scale 0.7s ease-out 0.4s backwards;
+}
+
+/* decora_2 — 人像右下（反向浮動，與左側呼應） */
+.hero-decora-2 {
+  animation:
+    hero-float-down 4.8s ease-in-out 1s infinite,
+    hero-fade-in-scale 0.7s ease-out 0.6s backwards;
+}
+
+/* decora_3 桌面左上 */
+.hero-decora-3-tl {
+  animation:
+    hero-sparkle 3s ease-in-out infinite,
+    hero-fade-in-scale 0.6s ease-out 0.2s backwards;
+}
+
+/* decora_4 — 桌面左中，較大 */
+.hero-decora-4 {
+  animation:
+    hero-float 5.5s ease-in-out 0.3s infinite,
+    hero-fade-in-scale 0.8s ease-out 0.3s backwards;
+}
+
+/* decora_3 桌面中央 */
+.hero-decora-3-center {
+  animation:
+    hero-sparkle 2.6s ease-in-out 1.2s infinite,
+    hero-fade-in-scale 0.6s ease-out 0.5s backwards;
+}
+
+/* decora_5 — 桌面左下 */
+.hero-decora-5 {
+  animation:
+    hero-float-down 4.5s ease-in-out 0.8s infinite,
+    hero-fade-in-scale 0.7s ease-out 0.6s backwards;
+}
+
+/* decora_3 桌面右側 */
+.hero-decora-3-r {
+  animation:
+    hero-sparkle 3.3s ease-in-out 0.6s infinite,
+    hero-fade-in-scale 0.6s ease-out 0.4s backwards;
+}
