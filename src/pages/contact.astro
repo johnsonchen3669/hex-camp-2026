@@ -72,7 +72,7 @@ const withBase = (path: string) =>
             <!-- Contact items -->
             <div class="flex flex-col">
               <a
-                href="mailto:johnsonchen3669@gmail.com"
+                href="mailto:hello@nelson-design.com"
                 class="group flex items-center gap-4 border-b border-neutral-700/20 py-4 transition-colors first:border-t hover:border-primary-500"
               >
                 <div class="flex size-12 shrink-0 items-center justify-center bg-primary-900 text-neutral-0 transition-colors group-hover:bg-primary-500">
@@ -82,7 +82,7 @@ const withBase = (path: string) =>
                 </div>
                 <div class="min-w-0 flex-1">
                   <p class="text-3.25/normal font-bold text-neutral-500 sm:text-sm/normal">Email</p>
-                  <p class="truncate text-sm/normal font-bold sm:text-base/normal">johnsonchen3669@gmail.com</p>
+                  <p class="truncate text-sm/normal font-bold sm:text-base/normal">hello@nelson-design.com</p>
                 </div>
                 <svg class="size-5 shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M6.70085 18L6 17.2991L16.2616 7.01794H6.80265V6H18V17.1974H16.9821V7.73839L6.70085 18Z"/>
@@ -286,7 +286,7 @@ const withBase = (path: string) =>
     const subject = encodeURIComponent(`[作品集聯絡] ${serviceLabels[service] ?? service} - ${name}`);
     const body = encodeURIComponent(`姓名：${name}\nEmail：${email}\n服務類型：${serviceLabels[service] ?? service}\n\n訊息內容：\n${message}`);
 
-    window.location.href = `mailto:johnsonchen3669@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@nelson-design.com?subject=${subject}&body=${body}`;
 
     if (feedback) {
       feedback.textContent = '感謝您的訊息！正在開啟郵件客戶端…';
