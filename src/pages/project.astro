@@ -1,9 +1,167 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import AppButton from "../components/AppButton";
+
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}${path.replace(/^\//, "")}`;
+
+const tabs = [
+  { label: "全部", active: true },
+  { label: "平面設計", active: false },
+  { label: "網頁設計", active: false },
+  { label: "前端切版", active: false },
+  { label: "後端開發", active: false },
+];
+
+const modalImage = withBase("/image/project_modal_pic.png");
+
+const projects = [
+  {
+    date: "Oct 16, 2025",
+    tags: ["平面設計", "網頁設計"],
+    title: "品牌視覺與電商整合，多肉植物品牌電商建置",
+    desc: "從品牌識別設計到 RWD 網站開發，打造療癒系植栽購物體驗",
+    image: withBase("/image/project_1.png"),
+    mobileImage: withBase("/image/mobile/project_1.png"),
+    modal: {
+      body: "我們將大自然的平靜感轉化為數位語彙，透過揉合大地色系與極簡排版，為「PLANTIQUE LIFE」建構出專屬的視覺靈魂。在開發過程中，我們秉持對細節的極致追求，確保從品牌 Logo 到每一個組件的轉場，皆展現像素級的精準。",
+      designPrinciple: "植栽藝術、日系風格、暖陽視覺",
+      devMethod: "Bootstrap、Javascript",
+      image: modalImage,
+    },
+  },
+  {
+    date: "Oct 16, 2025",
+    tags: ["平面設計", "網頁設計", "前端切版"],
+    title: "數位產品 UI/UX 設計，個人化財務視覺化軟體",
+    desc: "運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面",
+    image: withBase("/image/project_2.png"),
+    mobileImage: withBase("/image/mobile/project_2.png"),
+    modal: {
+      body: "以使用者為核心，透過深度訪談與數據分析，重新梳理財務管理的核心痛點。介面設計大量採用圖表視覺化手法，讓複雜數字變得直覺易懂，協助用戶快速掌握財務狀況並做出決策。",
+      designPrinciple: "數據視覺化、簡潔導向、專業信賴",
+      devMethod: "React、TypeScript、D3.js",
+      image: modalImage,
+    },
+  },
+  {
+    date: "Oct 16, 2025",
+    tags: ["前端切版", "後端開發"],
+    title: "品牌識別與包裝設計，法式甜點品牌視覺重塑",
+    desc: "以溫暖、輕盈的視覺語言，精準定位高質感甜點市場的品牌形象",
+    image: withBase("/image/project_3.png"),
+    mobileImage: withBase("/image/mobile/project_3.png"),
+    modal: {
+      body: "從品牌名稱字體設計到包裝色系規劃，完整構建法式甜點品牌的視覺語彙。以米白、玫瑰金為主色調，搭配手寫字型與細線幾何元素，呈現兼具精緻與溫度的高端甜點形象。",
+      designPrinciple: "法式美學、精緻質感、溫暖色調",
+      devMethod: "Illustrator、Figma、Photoshop",
+      image: modalImage,
+    },
+  },
+  {
+    date: "Oct 16, 2025",
+    tags: ["網頁設計", "前端切版", "後端開發"],
+    title: "金融科技系統設計，Open Bank API 數據整合平台",
+    desc: "串接第三方 API 並規劃穩定的後端架構，建構安全的資產管理後台",
+    image: withBase("/image/project_4.png"),
+    mobileImage: withBase("/image/mobile/project_4.png"),
+    modal: {
+      body: "整合多家銀行 Open API，建構統一的資產數據管理平台。後端採用微服務架構確保系統穩定性，前端以儀表板形式呈現即時資產動態，並通過金融級加密標準保障用戶數據安全。",
+      designPrinciple: "專業信賴、數據安全、清晰導航",
+      devMethod: "Node.js、PostgreSQL、Vue.js",
+      image: modalImage,
+    },
+  },
+];
 ---
 
-<BaseLayout title="Project">
-	<main class="grid min-h-dvh place-items-center px-6">
-		<h1 class="type-heading-xxxl text-primary-900">Project</h1>
-	</main>
+<BaseLayout title="專案作品 | Tom Portfolio">
+  <main>
+    <!-- ===== HERO ===== -->
+    <HeroBanner
+      enTitle="PROJECTS"
+      zhTitle="專案作品"
+      mobileSrc={withBase("/image/mobile/project_banner.png")}
+      desktopSrc={withBase("/image/project_banner.png")}
+    />
+
+    <!-- ===== FILTER TABS ===== -->
+    <section class="bg-neutral-0">
+      <div class="container">
+        <div class="grid auto-cols-max grid-flow-col overflow-x-auto py-6 md:grid-flow-row md:grid-cols-5 md:py-10">
+          {
+            tabs.map((tab) => (
+              <button
+                type="button"
+                data-filter={tab.label}
+                class={`px-3 py-2 text-base/normal font-bold transition md:w-full md:py-3 md:text-lg/normal ${
+                  tab.active
+                    ? "bg-primary-900 text-neutral-0"
+                    : "hover:bg-primary-50"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT LIST ===== -->
+    <section class="bg-neutral-0 pb-10 md:pb-20">
+      <div class="container">
+        <div class="flex flex-col gap-6">
+          {
+            projects.map((p) => (
+              <div data-project-tags={p.tags.join(',')}>
+                <ProjectCard
+                  date={p.date}
+                  tags={p.tags}
+                  title={p.title}
+                  desc={p.desc}
+                  image={p.image}
+                  mobileImage={p.mobileImage}
+                  modal={p.modal}
+                />
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Load more -->
+        <div class="mt-16 flex justify-center">
+          <AppButton href="#" label="探索更多" variant="primary" />
+        </div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const projectItems = document.querySelectorAll<HTMLElement>('[data-project-tags]');
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter ?? '全部';
+
+      // Update active tab
+      tabBtns.forEach((b) => {
+        const isActive = b === btn;
+        b.classList.toggle('bg-primary-900', isActive);
+        b.classList.toggle('text-neutral-0', isActive);
+        b.classList.toggle('hover:bg-primary-50', !isActive);
+      });
+
+      // Filter project cards
+      projectItems.forEach((item) => {
+        const tags = (item.dataset.projectTags ?? '').split(',');
+        const show = filter === '全部' || tags.includes(filter);
+        item.classList.toggle('hidden', !show);
+      });
+    });
+  });
+</script>
